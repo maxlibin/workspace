@@ -182,5 +182,3 @@ If you find this project valuable, please consider:
 	•	Giving us a ⭐ on GitHub!
 	•	Sharing it with your network.
 	•	Contributing code, feedback, or ideas.
-
-This README now reflects your updated stack, emphasizing Next.js for the frontend and Hono.js for API handling. Let me know if you’d like further adjustmentso!
