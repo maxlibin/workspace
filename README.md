@@ -1,11 +1,11 @@
 # workspace
-AI Research Canvas 🌟
+## AI Research Canvas 🌟
 
 AI-Powered Visual Research and Collaboration Tool
 
 AI Research Canvas is an open-source project that redefines the way we research, organize, and synthesize information. Combining a dynamic visual canvas for data organization with an AI-powered editor, this tool makes knowledge work smarter, more intuitive, and highly collaborative.
 
-🚀 Vision
+## 🚀 Vision
 
 Modern researchers, writers, and knowledge workers deal with an overwhelming amount of information from diverse sources. Traditional tools often fail to offer seamless organization or insights, requiring users to spend hours synthesizing their findings.
 
@@ -17,9 +17,9 @@ Our mission is to build a free and open platform where users can:
 
 By making this tool open source, we aim to empower the community to shape it into the ultimate research assistant.
 
-✨ Features
+## ✨ Features
 
-1. Dynamic Visual Canvas
+#### Dynamic Visual Canvas
 
 - Organize data using nodes for:
 - Text: Notes and ideas.
@@ -29,32 +29,32 @@ By making this tool open source, we aim to empower the community to shape it int
 - Connect nodes visually to map relationships and ideas.
 - Real-time collaboration, allowing multiple users to brainstorm together.
 
-2. AI-Assisted Editor
+#### AI-Assisted Editor
 
 - Summarize selected nodes or entire clusters on the canvas.
 - Generate insights, draft articles, or answer research-related questions.
 - Synchronize seamlessly with the canvas for dynamic workflows.
 
-3. Rich Media Support
+#### Rich Media Support
 
 - Embed videos, presentations, and more.
 - Extract key information from media using AI tools.
 
-4. Open Source Extensibility
+#### Open Source Extensibility
 
 - Fully open to customization and extension.
 - Build plugins or integrate your favorite APIs for added functionality.
 
-💡 Use Cases
+## 💡 Use Cases
 
 - Research: Organize papers, articles, and findings visually while summarizing content with AI.
 - Content Creation: Gather references and let the AI assist with writing drafts.
 - Business Analysis: Map market data, reports, and insights for strategic planning.
 - Education: Facilitate collaborative projects or personal knowledge management.
 
-🏗️ Architecture
+## 🏗️ Architecture
 
-Frontend
+### Frontend
 
 - Next.js: Handles the UI, server-side rendering, and some API routes.
 - ShadCN: For accessible, modern component design.
@@ -62,52 +62,53 @@ Frontend
 - React Flow: For the dynamic canvas to visualize and link data.
 - Tiptap: A rich-text editor to build the AI-assisted editor.
 
-API
+### API
 
 - Hono.js: Lightweight and blazing-fast framework for API routes, providing a separate layer for handling AI requests and database queries.
 
-Database
+### Database
 
 - MongoDB/PostgreSQL: Stores user data, relationships, and settings.
 
-AI Integration
+### AI Integration
 
 - OpenAI GPT: For summarization, insight generation, and language understanding.
 - Google Vertex AI (Optional): For clustering and advanced analysis.
 
-Hosting
+### Hosting
 
 - Frontend and API Routes: Deployed with Vercel for fast, scalable hosting.
 - Hono.js APIs: Deployed on Cloudflare Workers or similar edge services for low-latency API responses.
 
-🎯 Why Open Source?
+## 🎯 Why Open Source?
 
 By open-sourcing AI Research Canvas, we aim to:
 
-1.	Democratize access to powerful research tools.
-2.	Leverage the creativity and innovation of the developer community.
-3.	Encourage transparency and community-driven improvement.
+Democratize access to powerful research tools.
+Leverage the creativity and innovation of the developer community.
+Encourage transparency and community-driven improvement.
 
-📂 Folder Structure
-
+## 📂 Folder Structure
+```
 ├── frontend/            # Next.js app with React Flow, ShadCN, Tailwind, and Tiptap
 ├── api/                 # Hono.js API routes for handling AI and backend logic
 ├── ai/                  # AI-related modules and integrations
 ├── docs/                # Documentation for developers
 ├── public/              # Static assets
 └── tests/               # Automated testing scripts
+```
 
-🛠️ Installation
+## 🛠️ Installation
 
-Prerequisites:
+### Prerequisites:
 
 - Node.js (v14+)
 - MongoDB/PostgreSQL
 - API keys for OpenAI or Google Vertex AI
 
-Steps:
+### Steps:
 
-1. lone the repository:
+1. Clone the repository:
 
 `git clone https://github.com/yourusername/ai-research-canvas.git`
 `cd ai-research-canvas`
@@ -141,15 +142,15 @@ DB_CONNECTION_STRING=<your_database_connection_string>
 `cd api && npm start`
 
 
-	5.	Open your browser and navigate to http://localhost:3000.
+Open your browser and navigate to http://localhost:3000.
 
-🤝 Contributing
+## 🤝 Contributing
 
 We welcome contributions from developers, designers, and researchers! Here’s how you can help:
 
 1. Fork the repo and create your branch:
 
-git checkout -b feature/YourFeatureName
+`git checkout -b feature/YourFeatureName`
 
 
 2. Make changes and test thoroughly.
@@ -157,28 +158,28 @@ git checkout -b feature/YourFeatureName
 
 Check out our CONTRIBUTING.md for detailed guidelines.
 
-📚 Documentation
+## 📚 Documentation
 
 •	Getting Started
 •	API Reference
 •	Developer Guide
 
-💬 Community
+## 💬 Community
 
 Join our community channels:
 
-•	Slack
-•	Discord
-•	Discussions
+- Slack
+- Discord
+- Discussions
 
-📜 License
+## 📜 License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-🌟 Support the Project
+## 🌟 Support the Project
 
 If you find this project valuable, please consider:
 
-•	Giving us a ⭐ on GitHub!
-•	Sharing it with your network.
-•	Contributing code, feedback, or ideas.
+- Giving us a ⭐ on GitHub!
+- Sharing it with your network.
+- Contributing code, feedback, or ideas.
