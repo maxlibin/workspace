@@ -90,12 +90,7 @@ Encourage transparency and community-driven improvement.
 
 ## 📂 Folder Structure
 ```
-├── frontend/            # Next.js app with React Flow, ShadCN, Tailwind, and Tiptap
-├── api/                 # Hono.js API routes for handling AI and backend logic
-├── ai/                  # AI-related modules and integrations
-├── docs/                # Documentation for developers
-├── public/              # Static assets
-└── tests/               # Automated testing scripts
+
 ```
 
 ## 🛠️ Installation
