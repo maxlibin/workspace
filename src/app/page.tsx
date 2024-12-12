@@ -3,6 +3,8 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { LeftPanel } from "@/components/panels/LeftPanel";
+import { RightPanel } from "@/components/panels/RightPanel";
 
 export default function Home() {
   return (
@@ -12,15 +14,11 @@ export default function Home() {
         className="min-h-screen rounded-lg border"
       >
         <ResizablePanel defaultSize={50}>
-          <div className="flex h-full items-center justify-center p-6">
-            <span className="font-semibold">Left Panel</span>
-          </div>
+          <LeftPanel />
         </ResizablePanel>
         <ResizableHandle />
         <ResizablePanel defaultSize={50}>
-          <div className="flex h-full items-center justify-center p-6">
-            <span className="font-semibold">Right Panel</span>
-          </div>
+          <RightPanel />
         </ResizablePanel>
       </ResizablePanelGroup>
     </main>
