@@ -1,0 +1,51 @@
+.bubble-menu {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #0D0D0D;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+
+  button {
+    border: none;
+    background: none;
+    color: #FFF;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #2D2D2D;
+    }
+
+    &.is-active {
+      background-color: #1D1D1D;
+    }
+  }
+}
+
+.floating-menu {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #0D0D0D;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+
+  button {
+    border: none;
+    background: none;
+    color: #FFF;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #2D2D2D;
+    }
+
+    &.is-active {
+      background-color: #1D1D1D;
+    }
+  }
+} 

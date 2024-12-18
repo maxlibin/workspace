@@ -1,42 +1,97 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   ReactFlow,
   Controls,
   Background,
   MiniMap,
-  useNodesState,
-  useEdgesState,
-  addEdge,
   Connection,
+  Edge,
+  Node,
+  NodeChange,
+  EdgeChange,
+  applyNodeChanges,
+  applyEdgeChanges,
+  Panel,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
+import { useFlowStore } from "@/store/flow";
+import { TextNode } from "./nodes/TextNode";
+import { ImageNode } from "./nodes/ImageNode";
+import { InputNode } from "./nodes/InputNode";
+import { Toolbar } from "./Toolbar";
 
-const initialNodes = [
-  {
-    id: "1",
-    position: { x: 100, y: 100 },
-    data: { label: "Node 1" },
-    type: "input",
-  },
-  {
-    id: "2",
-    position: { x: 300, y: 100 },
-    data: { label: "Node 2" },
-  },
-];
+const nodeTypes = {
+  textNode: TextNode,
+  imageNode: ImageNode,
+  inputNode: InputNode,
+};
 
-const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
+const proOptions = { hideAttribution: true };
 
 export function FlowCanvas() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [initialized, setInitialized] = useState(false);
+  const {
+    nodes,
+    edges,
+    setNodes,
+    setEdges,
+    addEdge: storeAddEdge,
+    removeNode,
+    removeEdge,
+    initializeStore,
+  } = useFlowStore();
+
+  useEffect(() => {
+    if (!initialized) {
+      initializeStore();
+      setInitialized(true);
+    }
+  }, [initialized, initializeStore]);
+
+  const onNodesChange = useCallback(
+    (changes: NodeChange[]) => {
+      setNodes(applyNodeChanges(changes, nodes));
+    },
+    [nodes, setNodes]
+  );
+
+  const onEdgesChange = useCallback(
+    (changes: EdgeChange[]) => {
+      setEdges(applyEdgeChanges(changes, edges));
+    },
+    [edges, setEdges]
+  );
 
   const onConnect = useCallback(
-    (connection: Connection) => setEdges((eds) => addEdge(connection, eds)),
-    [setEdges]
+    (connection: Connection) => {
+      const newEdge = {
+        id: `e${connection.source}-${connection.target}`,
+        ...connection,
+      } as Edge;
+      storeAddEdge(newEdge);
+    },
+    [storeAddEdge]
   );
+
+  const onNodeDelete = useCallback(
+    (nodes: Node[]) => {
+      nodes.forEach((node) => removeNode(node.id));
+    },
+    [removeNode]
+  );
+
+  const onEdgeDelete = useCallback(
+    (edges: Edge[]) => {
+      edges.forEach((edge) => removeEdge(edge.id));
+    },
+    [removeEdge]
+  );
+
+  if (!initialized) {
+    return null;
+  }
 
   return (
     <div className="h-full w-full">
@@ -46,11 +101,18 @@ export function FlowCanvas() {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        onNodesDelete={onNodeDelete}
+        onEdgesDelete={onEdgeDelete}
+        nodeTypes={nodeTypes}
+        proOptions={proOptions}
         fitView
       >
         <Background />
         <Controls />
         <MiniMap />
+        <Panel position="top-left" className="bg-white/50 p-2 rounded-lg">
+          <Toolbar />
+        </Panel>
       </ReactFlow>
     </div>
   );
