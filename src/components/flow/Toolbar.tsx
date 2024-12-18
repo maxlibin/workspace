@@ -33,32 +33,20 @@ export function Toolbar() {
   );
 
   return (
-    <div className="flex gap-2">
-      <button
-        onClick={() => createNode("textNode")}
-        className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-      >
+    <div className="flex flex-col gap-2 bg-white p-2 rounded-md border border-gray-200">
+      <button onClick={() => createNode("textNode")}>
         <div className="flex items-center gap-2">
           <span className="text-lg">📝</span>
-          Add Text
         </div>
       </button>
-      <button
-        onClick={() => createNode("imageNode")}
-        className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-      >
+      <button onClick={() => createNode("imageNode")}>
         <div className="flex items-center gap-2">
           <span className="text-lg">🖼️</span>
-          Add Image
         </div>
       </button>
-      <button
-        onClick={() => createNode("inputNode")}
-        className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-      >
+      <button onClick={() => createNode("inputNode")}>
         <div className="flex items-center gap-2">
           <span className="text-lg">📥</span>
-          Add Input
         </div>
       </button>
     </div>

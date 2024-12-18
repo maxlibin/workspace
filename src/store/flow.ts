@@ -5,36 +5,36 @@ import { Node, Edge } from "@xyflow/react";
 const initialNodes: Node[] = [
   {
     id: "1",
-    type: "custom",
-    data: {
-      label: "Input Node",
-      subtitle: "Start here",
-    },
+    type: "textNode",
     position: { x: 250, y: 25 },
+    data: {
+      text: "Welcome to the Flow Editor! Start by editing this text...",
+    },
   },
   {
     id: "2",
-    type: "custom",
+    type: "imageNode",
+    position: { x: 100, y: 200 },
     data: {
-      label: "Process Node",
-      subtitle: "Middle step",
+      imageUrl: "https://picsum.photos/200",
     },
-    position: { x: 100, y: 125 },
   },
   {
     id: "3",
-    type: "custom",
+    type: "inputNode",
+    position: { x: 400, y: 200 },
     data: {
-      label: "Output Node",
-      subtitle: "End result",
+      label: "Sample Input",
+      placeholder: "Type something...",
+      value: "",
+      inputType: "text",
     },
-    position: { x: 250, y: 250 },
   },
 ];
 
 const initialEdges: Edge[] = [
   { id: "e1-2", source: "1", target: "2" },
-  { id: "e2-3", source: "2", target: "3" },
+  { id: "e1-3", source: "1", target: "3" },
 ];
 
 interface FlowState {

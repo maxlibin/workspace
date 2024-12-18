@@ -110,7 +110,10 @@ export function FlowCanvas() {
         <Background />
         <Controls />
         <MiniMap />
-        <Panel position="top-left" className="bg-white/50 p-2 rounded-lg">
+        <Panel
+          position="bottom-left"
+          className="bg-white/50 p-2 rounded-lg top-[50%]"
+        >
           <Toolbar />
         </Panel>
       </ReactFlow>
