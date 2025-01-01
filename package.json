@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.5.2",
+    "@copilotkit/react-core": "^1.4.7",
+    "@copilotkit/react-ui": "^1.4.7",
     "@radix-ui/react-slot": "^1.1.0",
     "@tiptap/pm": "^2.10.3",
     "@tiptap/react": "^2.10.3",
