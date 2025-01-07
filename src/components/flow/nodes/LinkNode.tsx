@@ -2,7 +2,7 @@
 
 import { Handle, Position, NodeProps } from "@xyflow/react";
 
-export function InputNode({ data }: NodeProps) {
+export function LinkNode({ data }: NodeProps) {
   return (
     <div className="shadow-md border-2 bg-white border-gray-400 w-64 rounded-lg">
       <Handle

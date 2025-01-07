@@ -19,13 +19,15 @@ import "@xyflow/react/dist/style.css";
 import { useFlowStore } from "@/store/flow";
 import { TextNode } from "./nodes/TextNode";
 import { ImageNode } from "./nodes/ImageNode";
-import { InputNode } from "./nodes/InputNode";
+import { LinkNode } from "./nodes/LinkNode";
+import { CopilotChatNode } from "./nodes/CopilotChatNode";
 import { Toolbar } from "./Toolbar";
 
 const nodeTypes = {
   textNode: TextNode,
   imageNode: ImageNode,
-  inputNode: InputNode,
+  inputNode: LinkNode,
+  copilotChatNode: CopilotChatNode,
 };
 
 const proOptions = { hideAttribution: true };
