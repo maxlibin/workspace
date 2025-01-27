@@ -7,6 +7,8 @@ import { CopilotChat } from "@copilotkit/react-ui";
 import "@copilotkit/react-ui/styles.css";
 
 export function CopilotChatNode({ data }: NodeProps) {
+  console.log(data);
+
   return (
     <div className="shadow-md border-2 bg-white border-gray-400 w-64 rounded-lg">
       <Handle
@@ -15,7 +17,7 @@ export function CopilotChatNode({ data }: NodeProps) {
         className="!bg-teal-500 w-3 h-3"
       />
       <div className="p-4">
-        <CopilotKit runtimeUrl="/api/copilot">
+        <CopilotKit runtimeUrl="/api/copilotkit">
           <CopilotChat
             labels={{
               title: "Your Assistant",
