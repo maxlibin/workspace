@@ -1,6 +1,9 @@
 # workspace
 ## AI Research Canvas 🌟
 
+<img width="1772" alt="Screenshot 2025-02-13 at 3 10 19 PM" src="https://github.com/user-attachments/assets/fbe782e2-af62-4dfc-8b78-9dc2357018b2" />
+
+
 AI-Powered Visual Research and Collaboration Tool
 
 AI Research Canvas is an open-source project that redefines the way we research, organize, and synthesize information. Combining a dynamic visual canvas for data organization with an AI-powered editor, this tool makes knowledge work smarter, more intuitive, and highly collaborative.
