@@ -10,7 +10,7 @@ import {
   Bot as BotIcon,
 } from "lucide-react";
 
-type NodeType = "textNode" | "imageNode" | "inputNode" | "copilotChatNode";
+type NodeType = "textNode" | "imageNode" | "inputNode" | "chatNode";
 
 const items: { icon: React.ElementType; type: NodeType }[] = [
   {
@@ -27,7 +27,7 @@ const items: { icon: React.ElementType; type: NodeType }[] = [
   },
   {
     icon: BotIcon,
-    type: "copilotChatNode",
+    type: "chatNode",
   },
 ];
 

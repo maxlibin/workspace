@@ -15,6 +15,7 @@ const Chat = ({ data }: { data: any }) => {
     },
     [data]
   );
+
   return (
     <div className="shadow-md border-2 bg-white border-gray-400 w-64 rounded-lg">
       <Handle
@@ -40,7 +41,7 @@ const Chat = ({ data }: { data: any }) => {
   );
 };
 
-export function CopilotChatNode({ data }: NodeProps) {
+export function ChatNode({ data }: NodeProps) {
   return (
     <CopilotKit runtimeUrl="/api/copilotkit">
       <Chat data={data} />

@@ -20,14 +20,14 @@ import { useFlowStore } from "@/store/flow";
 import { TextNode } from "./nodes/TextNode";
 import { ImageNode } from "./nodes/ImageNode";
 import { LinkNode } from "./nodes/LinkNode";
-import { CopilotChatNode } from "./nodes/CopilotChatNode";
+import { ChatNode } from "./nodes/ChatNode";
 import { Toolbar } from "./Toolbar";
 
 const nodeTypes = {
   textNode: TextNode,
   imageNode: ImageNode,
   inputNode: LinkNode,
-  copilotChatNode: CopilotChatNode,
+  chatNode: ChatNode,
 };
 
 const proOptions = { hideAttribution: true };
