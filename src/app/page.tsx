@@ -15,11 +15,11 @@ export default function Home() {
           direction="horizontal"
           className="min-h-screen rounded-lg border"
         >
-          <ResizablePanel defaultSize={50}>
+          <ResizablePanel defaultSize={70}>
             <LeftPanel />
           </ResizablePanel>
           <ResizableHandle />
-          <ResizablePanel defaultSize={50}>
+          <ResizablePanel defaultSize={30}>
             <RightPanel />
           </ResizablePanel>
         </ResizablePanelGroup>

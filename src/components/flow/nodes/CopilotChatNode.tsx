@@ -5,10 +5,16 @@ import { Handle, Position, NodeProps } from "@xyflow/react";
 import { CopilotKit } from "@copilotkit/react-core";
 import { CopilotChat } from "@copilotkit/react-ui";
 import "@copilotkit/react-ui/styles.css";
+import { useCopilotReadable } from "@copilotkit/react-core";
 
-export function CopilotChatNode({ data }: NodeProps) {
-  console.log(data);
-
+const Chat = ({ data }: { data: any }) => {
+  useCopilotReadable(
+    {
+      description: "Data of the connected nodes",
+      value: data,
+    },
+    [data]
+  );
   return (
     <div className="shadow-md border-2 bg-white border-gray-400 w-64 rounded-lg">
       <Handle
@@ -17,14 +23,13 @@ export function CopilotChatNode({ data }: NodeProps) {
         className="!bg-teal-500 w-3 h-3"
       />
       <div className="p-4">
-        <CopilotKit runtimeUrl="/api/copilotkit">
-          <CopilotChat
-            labels={{
-              title: "Your Assistant",
-              initial: "Hi! 👋 How can I assist you today?",
-            }}
-          />
-        </CopilotKit>
+        <CopilotChat
+          className="h-full"
+          labels={{
+            title: "Your Assistant",
+            initial: "Hi! 👋 How can I assist you today?",
+          }}
+        />
       </div>
       <Handle
         type="source"
@@ -32,5 +37,13 @@ export function CopilotChatNode({ data }: NodeProps) {
         className="!bg-teal-500 w-3 h-3"
       />
     </div>
+  );
+};
+
+export function CopilotChatNode({ data }: NodeProps) {
+  return (
+    <CopilotKit runtimeUrl="/api/copilotkit">
+      <Chat data={data} />
+    </CopilotKit>
   );
 }
