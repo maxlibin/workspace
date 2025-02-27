@@ -25,6 +25,7 @@ By making this tool open source, we aim to empower the community to shape it int
 1. Clone the repository:
 
 `git clone git@github.com:maxlibin/workspace.git`
+
 `cd workspace`
 
 
@@ -40,7 +41,7 @@ By making this tool open source, we aim to empower the community to shape it int
 
 4. Start the development servers:
 
-`cd frontend && npm run dev`
+`npm run dev`
 
 
 Open your browser and navigate to http://localhost:3000.
