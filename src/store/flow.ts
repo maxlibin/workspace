@@ -27,11 +27,15 @@ interface FlowState {
   addEdge: (edge: Edge) => void;
   removeEdge: (id: string) => void;
   initializeStore: () => void;
+  getNodeById: (id: string) => Node | undefined;
+  getConnectedSourceNodes: (nodeId: string) => Node[];
+  getConnectedTargetNodes: (nodeId: string) => Node[];
+  propagateDataToTargets: (sourceId: string) => void;
 }
 
 export const useFlowStore = create<FlowState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       nodes: [],
       edges: [],
       initialized: false,
@@ -39,11 +43,12 @@ export const useFlowStore = create<FlowState>()(
       setEdges: (edges) => set({ edges }),
       addNode: (node) => set((state) => ({ nodes: [...state.nodes, node] })),
       updateNode: (id, data) =>
-        set((state) => ({
-          nodes: state.nodes.map((node) =>
+        set((state) => {
+          const updatedNodes = state.nodes.map((node) =>
             node.id === id ? { ...node, ...data } : node
-          ),
-        })),
+          );
+          return { nodes: updatedNodes };
+        }),
       removeNode: (id) =>
         set((state) => ({
           nodes: state.nodes.filter((node) => node.id !== id),
@@ -62,6 +67,45 @@ export const useFlowStore = create<FlowState>()(
           edges: state.edges.length ? state.edges : initialEdges,
           initialized: true,
         })),
+      getNodeById: (id) => {
+        return get().nodes.find((node) => node.id === id);
+      },
+      getConnectedSourceNodes: (nodeId) => {
+        const { nodes, edges } = get();
+        // Find all edges where this node is the target
+        const sourceEdges = edges.filter((edge) => edge.target === nodeId);
+        // Get the source nodes
+        return sourceEdges
+          .map((edge) => nodes.find((node) => node.id === edge.source))
+          .filter((node): node is Node => node !== undefined);
+      },
+      getConnectedTargetNodes: (nodeId) => {
+        const { nodes, edges } = get();
+        // Find all edges where this node is the source
+        const targetEdges = edges.filter((edge) => edge.source === nodeId);
+        // Get the target nodes
+        return targetEdges
+          .map((edge) => nodes.find((node) => node.id === edge.target))
+          .filter((node): node is Node => node !== undefined);
+      },
+      propagateDataToTargets: (sourceId) => {
+        const { getNodeById, getConnectedTargetNodes, updateNode } = get();
+        const sourceNode = getNodeById(sourceId);
+        if (!sourceNode) return;
+
+        const targetNodes = getConnectedTargetNodes(sourceId);
+
+        // Propagate data to all target nodes
+        targetNodes.forEach((targetNode) => {
+          // Update the target node with source node data
+          updateNode(targetNode.id, {
+            data: {
+              ...targetNode.data,
+              connectedData: sourceNode.data,
+            },
+          });
+        });
+      },
     }),
     {
       name: "flow-storage",

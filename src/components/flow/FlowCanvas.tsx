@@ -31,11 +31,6 @@ const nodeTypes = {
 };
 
 const proOptions = { hideAttribution: true };
-const defaultViewport = {
-  x: 0,
-  y: 0,
-  zoom: 0.75,
-};
 
 export function FlowCanvas() {
   const [initialized, setInitialized] = useState(false);
@@ -48,6 +43,7 @@ export function FlowCanvas() {
     removeNode,
     removeEdge,
     initializeStore,
+    updateNode,
   } = useFlowStore();
 
   useEffect(() => {
@@ -78,8 +74,22 @@ export function FlowCanvas() {
         ...connection,
       } as Edge;
       storeAddEdge(newEdge);
+
+      // Propagate data from source to target when a new connection is made
+      const sourceNode = nodes.find((node) => node.id === connection.source);
+      const targetNode = nodes.find((node) => node.id === connection.target);
+
+      if (sourceNode && targetNode) {
+        // Update the target node with the source node's data
+        updateNode(targetNode.id, {
+          data: {
+            ...targetNode.data,
+            connectedData: sourceNode.data,
+          },
+        });
+      }
     },
-    [storeAddEdge]
+    [storeAddEdge, nodes, updateNode]
   );
 
   const onNodeDelete = useCallback(

@@ -3,8 +3,14 @@
 import { Handle, Position, NodeProps } from "@xyflow/react";
 import { FileText } from "lucide-react";
 import { NodeMenu } from "./NodeMenu";
+import { useFlowStore } from "@/store/flow";
 
 export function TextNode({ data, id }: NodeProps) {
+  const updateNode = useFlowStore((state) => state.updateNode);
+  const propagateDataToTargets = useFlowStore(
+    (state) => state.propagateDataToTargets
+  );
+
   return (
     <div className="border bg-white border-gray-500/20 w-64 rounded-md relative">
       <NodeMenu nodeId={id} />
@@ -19,11 +25,22 @@ export function TextNode({ data, id }: NodeProps) {
       </div>
       <div className="p-4">
         <textarea
-          defaultValue={data.text || "Enter your text here..."}
+          value={(data.text as string) || "Enter your text here..."}
           className="w-full h-24 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Enter your text here..."
           onChange={(evt) => {
-            data.text = evt.target.value;
+            const newText = evt.target.value;
+
+            // Update this node's data in the store
+            updateNode(id, {
+              data: {
+                ...data,
+                text: newText,
+              },
+            });
+
+            // Propagate the data to connected target nodes
+            setTimeout(() => propagateDataToTargets(id), 0);
           }}
         />
       </div>

@@ -1,15 +1,27 @@
 "use client";
 
 import { Handle, Position, NodeProps } from "@xyflow/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ImageIcon } from "lucide-react";
 import Image from "next/image";
 import { NodeMenu } from "./NodeMenu";
+import { useFlowStore } from "@/store/flow";
 
 export function ImageNode({ data, id }: NodeProps) {
-  const [imageUrl, setImageUrl] = useState<string>(
-    data?.imageUrl?.toString() || ""
+  const updateNode = useFlowStore((state) => state.updateNode);
+  const propagateDataToTargets = useFlowStore(
+    (state) => state.propagateDataToTargets
   );
+  const [imageUrl, setImageUrl] = useState<string>(
+    (data?.imageUrl as string) || ""
+  );
+
+  // Sync local state with store data when it changes externally
+  useEffect(() => {
+    if (data?.imageUrl !== imageUrl) {
+      setImageUrl((data?.imageUrl as string) || "");
+    }
+  }, [data?.imageUrl, imageUrl]);
 
   return (
     <div className="border bg-white border-gray-500/20 w-64 rounded-md relative">
@@ -28,17 +40,25 @@ export function ImageNode({ data, id }: NodeProps) {
           type="text"
           value={imageUrl}
           onChange={(e) => {
-            setImageUrl(e.target.value);
-            data.imageUrl = e.target.value;
+            const newUrl = e.target.value;
+            setImageUrl(newUrl);
+
+            updateNode(id, {
+              data: {
+                ...data,
+                imageUrl: newUrl,
+              },
+            });
+
+            setTimeout(() => propagateDataToTargets(id), 0);
           }}
           className="w-full p-2 mb-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Enter image URL..."
         />
         {imageUrl && (
           <div className="relative w-full pt-[56.25%]">
-            <Image
+            <img
               src={imageUrl}
-              alt="Node content"
               className="absolute top-0 left-0 w-full h-full object-cover rounded"
             />
           </div>
