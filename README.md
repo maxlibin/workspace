@@ -28,7 +28,7 @@ By making this tool open source, we aim to empower the community to shape it int
 
 1. Clone the repository:
 
-`git clone [git@github.com:maxlibin/workspace.git](git@github.com:maxlibin/workspace.git)`
+`git clone git@github.com:maxlibin/workspace.git`
 `cd workspace`
 
 
@@ -38,10 +38,9 @@ By making this tool open source, we aim to empower the community to shape it int
 
 
 3. Set up environment variables:
-/Create a `.env` file in the root directories (frontend and api) with the following:
+/Create a `.env` file in the root directories with the following:
 
-# In root folder create a a .env
-`NEXT_PUBLIC_OPENAI_API_URL=Your openAi Api key`
+`OPENAI_API_KEY=Your openAi Api key`
 
 4. Start the development servers:
 - Frontend:
