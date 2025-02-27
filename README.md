@@ -22,10 +22,6 @@ By making this tool open source, we aim to empower the community to shape it int
 
 ## 🛠️ Installation
 
-- API keys for OpenAI
-
-### Steps:
-
 1. Clone the repository:
 
 `git clone git@github.com:maxlibin/workspace.git`
@@ -43,7 +39,6 @@ By making this tool open source, we aim to empower the community to shape it int
 `OPENAI_API_KEY=Your openAi Api key`
 
 4. Start the development servers:
-- Frontend:
 
 `cd frontend && npm run dev`
 
