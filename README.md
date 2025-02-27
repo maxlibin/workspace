@@ -22,10 +22,6 @@ By making this tool open source, we aim to empower the community to shape it int
 
 ## 🛠️ Installation
 
-### Prerequisites:
-
-- Node.js (v14+)
-- MongoDB/PostgreSQL
 - API keys for OpenAI
 
 ### Steps:
