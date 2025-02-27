@@ -2,7 +2,7 @@
 
 ## AI Research Canvas 🌟
 
-<img width="1772" alt="Screenshot 2025-02-13 at 3 10 19 PM" src="https://github.com/user-attachments/assets/fbe782e2-af62-4dfc-8b78-9dc2357018b2" />
+![screenshot](https://github.com/user-attachments/assets/b76f09e6-7239-41d8-86a0-e45467d5a5df)
 
 AI-Powered Visual Research and Collaboration Tool
 
