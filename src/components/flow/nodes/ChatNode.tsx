@@ -1,13 +1,19 @@
 "use client";
 
 import { Handle, Position, NodeProps } from "@xyflow/react";
+import { MessageSquare } from "lucide-react";
+import { NodeMenu } from "./NodeMenu";
 
 import { CopilotKit } from "@copilotkit/react-core";
 import { CopilotChat } from "@copilotkit/react-ui";
 import "@copilotkit/react-ui/styles.css";
 import { useCopilotReadable } from "@copilotkit/react-core";
 
-const Chat = ({ data }: { data: any }) => {
+interface ChatData {
+  [key: string]: unknown;
+}
+
+const Chat = ({ data, nodeId }: { data: ChatData; nodeId: string }) => {
   useCopilotReadable(
     {
       description: "Data of the connected nodes",
@@ -17,12 +23,17 @@ const Chat = ({ data }: { data: any }) => {
   );
 
   return (
-    <div className="shadow-md border-2 bg-white border-gray-400 w-64 rounded-lg">
+    <div className="border bg-white border-gray-500/20 w-64 rounded-md relative">
+      <NodeMenu nodeId={nodeId} />
       <Handle
         type="target"
         position={Position.Top}
         className="!bg-teal-500 w-3 h-3"
       />
+      <div className="flex items-center gap-2 p-2 border-b border-gray-200">
+        <MessageSquare className="w-4 h-4 text-gray-500" />
+        <span className="text-sm font-medium text-gray-700">Chat Node</span>
+      </div>
       <div className="p-4">
         <CopilotChat
           className="h-full"
@@ -41,10 +52,10 @@ const Chat = ({ data }: { data: any }) => {
   );
 };
 
-export function ChatNode({ data }: NodeProps) {
+export function ChatNode({ data, id }: NodeProps) {
   return (
-    <CopilotKit runtimeUrl="/api/copilotkit">
-      <Chat data={data} />
+    <CopilotKit runtimeUrl="/api/copilotkit" showDevConsole={false}>
+      <Chat data={data} nodeId={id} />
     </CopilotKit>
   );
 }

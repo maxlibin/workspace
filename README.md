@@ -1,8 +1,8 @@
 # workspace
+
 ## AI Research Canvas 🌟
 
 <img width="1772" alt="Screenshot 2025-02-13 at 3 10 19 PM" src="https://github.com/user-attachments/assets/fbe782e2-af62-4dfc-8b78-9dc2357018b2" />
-
 
 AI-Powered Visual Research and Collaboration Tool
 
@@ -28,24 +28,20 @@ By making this tool open source, we aim to empower the community to shape it int
 
 `cd workspace`
 
-
 2. Install dependencies:
 
-`npm install`
-
+`yarn`
 
 3. Set up environment variables:
-/Create a `.env` file in the root directories with the following:
+   Create a `.env` file in the root directories with the following:
 
 `OPENAI_API_KEY=Your openAi Api key`
 
 4. Start the development servers:
 
-`npm run dev`
-
+`yarn dev`
 
 Open your browser and navigate to http://localhost:3000.
-
 
 ## ✨ Features
 
@@ -126,7 +122,6 @@ We welcome contributions from developers, designers, and researchers! Here’s h
 
 `git checkout -b feature/YourFeatureName`
 
-
 2. Make changes and test thoroughly.
 3. Submit a pull request with a clear description of your changes.
 
@@ -134,9 +129,9 @@ Check out our CONTRIBUTING.md for detailed guidelines.
 
 ## 📚 Documentation
 
-•	Getting Started
-•	API Reference
-•	Developer Guide
+• Getting Started
+• API Reference
+• Developer Guide
 
 ## 💬 Community
 

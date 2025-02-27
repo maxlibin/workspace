@@ -31,6 +31,11 @@ const nodeTypes = {
 };
 
 const proOptions = { hideAttribution: true };
+const defaultViewport = {
+  x: 0,
+  y: 0,
+  zoom: 0.75,
+};
 
 export function FlowCanvas() {
   const [initialized, setInitialized] = useState(false);
@@ -107,7 +112,6 @@ export function FlowCanvas() {
         onEdgesDelete={onEdgeDelete}
         nodeTypes={nodeTypes}
         proOptions={proOptions}
-        fitView
       >
         <Background />
         <Controls />

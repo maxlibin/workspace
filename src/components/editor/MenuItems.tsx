@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Editor } from "@tiptap/react";
+import { Bold, Italic, Strikethrough, Code } from "lucide-react";
 
 export const MenuItems: FC<{ editor: Editor }> = ({ editor }) => {
   return (
@@ -10,7 +11,7 @@ export const MenuItems: FC<{ editor: Editor }> = ({ editor }) => {
           editor.isActive("bold") ? "bg-gray-200" : ""
         }`}
       >
-        Bold
+        <Bold size={18} />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
@@ -18,7 +19,7 @@ export const MenuItems: FC<{ editor: Editor }> = ({ editor }) => {
           editor.isActive("italic") ? "bg-gray-200" : ""
         }`}
       >
-        Italic
+        <Italic size={18} />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleStrike().run()}
@@ -26,7 +27,7 @@ export const MenuItems: FC<{ editor: Editor }> = ({ editor }) => {
           editor.isActive("strike") ? "bg-gray-200" : ""
         }`}
       >
-        Strike
+        <Strikethrough size={18} />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleCode().run()}
@@ -34,7 +35,7 @@ export const MenuItems: FC<{ editor: Editor }> = ({ editor }) => {
           editor.isActive("code") ? "bg-gray-200" : ""
         }`}
       >
-        Code
+        <Code size={18} />
       </button>
     </>
   );

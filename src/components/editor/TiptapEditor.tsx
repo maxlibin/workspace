@@ -21,8 +21,7 @@ export function TiptapEditor() {
     `,
     editorProps: {
       attributes: {
-        class:
-          "prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none",
+        class: "prose max-w-none mx-auto focus:outline-none",
       },
     },
     onUpdate: ({ editor }) => {
