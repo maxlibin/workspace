@@ -102,42 +102,31 @@ Encourage transparency and community-driven improvement.
 
 - Node.js (v14+)
 - MongoDB/PostgreSQL
-- API keys for OpenAI or Google Vertex AI
+- API keys for OpenAI
 
 ### Steps:
 
 1. Clone the repository:
 
-`git clone https://github.com/yourusername/ai-research-canvas.git`
-`cd ai-research-canvas`
+`git clone [git@github.com:maxlibin/workspace.git](git@github.com:maxlibin/workspace.git)`
+`cd workspace`
 
 
 2. Install dependencies:
 
-`cd frontend && npm install`
-`cd ../api && npm install`
+`npm install`
 
 
 3. Set up environment variables:
 /Create a `.env` file in the root directories (frontend and api) with the following:
 
-# In frontend/.env
-`NEXT_PUBLIC_OPENAI_API_URL=/api/openai`
-
-# In api/.env
-OPENAI_API_KEY=<your_openai_api_key>
-DB_CONNECTION_STRING=<your_database_connection_string>
-
+# In root folder create a a .env
+`NEXT_PUBLIC_OPENAI_API_URL=Your openAi Api key`
 
 4. Start the development servers:
 - Frontend:
 
 `cd frontend && npm run dev`
-
-
-- API:
-
-`cd api && npm start`
 
 
 Open your browser and navigate to http://localhost:3000.
