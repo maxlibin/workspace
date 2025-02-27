@@ -20,6 +20,42 @@ Our mission is to build a free and open platform where users can:
 
 By making this tool open source, we aim to empower the community to shape it into the ultimate research assistant.
 
+## 🛠️ Installation
+
+### Prerequisites:
+
+- Node.js (v14+)
+- MongoDB/PostgreSQL
+- API keys for OpenAI
+
+### Steps:
+
+1. Clone the repository:
+
+`git clone [git@github.com:maxlibin/workspace.git](git@github.com:maxlibin/workspace.git)`
+`cd workspace`
+
+
+2. Install dependencies:
+
+`npm install`
+
+
+3. Set up environment variables:
+/Create a `.env` file in the root directories (frontend and api) with the following:
+
+# In root folder create a a .env
+`NEXT_PUBLIC_OPENAI_API_URL=Your openAi Api key`
+
+4. Start the development servers:
+- Frontend:
+
+`cd frontend && npm run dev`
+
+
+Open your browser and navigate to http://localhost:3000.
+
+
 ## ✨ Features
 
 #### Dynamic Visual Canvas
@@ -90,46 +126,6 @@ By open-sourcing AI Research Canvas, we aim to:
 Democratize access to powerful research tools.
 Leverage the creativity and innovation of the developer community.
 Encourage transparency and community-driven improvement.
-
-## 📂 Folder Structure
-```
-
-```
-
-## 🛠️ Installation
-
-### Prerequisites:
-
-- Node.js (v14+)
-- MongoDB/PostgreSQL
-- API keys for OpenAI
-
-### Steps:
-
-1. Clone the repository:
-
-`git clone [git@github.com:maxlibin/workspace.git](git@github.com:maxlibin/workspace.git)`
-`cd workspace`
-
-
-2. Install dependencies:
-
-`npm install`
-
-
-3. Set up environment variables:
-/Create a `.env` file in the root directories (frontend and api) with the following:
-
-# In root folder create a a .env
-`NEXT_PUBLIC_OPENAI_API_URL=Your openAi Api key`
-
-4. Start the development servers:
-- Frontend:
-
-`cd frontend && npm run dev`
-
-
-Open your browser and navigate to http://localhost:3000.
 
 ## 🤝 Contributing
 
